@@ -6,11 +6,12 @@
   height: 100vh; /*if we only want this item to be smack center*/
  }
 .loading-text{
+  padding: 10px;
     display: block;
     margin: 0 auto;
     text-align: center;
     color: white;
-    top: -50px;
+    top: -250px;
     position: relative;
     font-style: italic;
 }
