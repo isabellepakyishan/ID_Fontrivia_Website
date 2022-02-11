@@ -6,7 +6,7 @@ function myFunction(){
 
 let url = 'https://uselessfacts.jsph.pl//random.json?language=en';
 
-let newprofile = function(){
+let loadRandomFact = function(){
   fetch(url)
   .then(response => response.json())
   .then(function(data){
@@ -14,4 +14,4 @@ let newprofile = function(){
     $(".loading-text").html(data.text)
   });
 }
-newprofile();
+loadRandomFact();
