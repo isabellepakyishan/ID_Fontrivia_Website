@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Loading Website</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
-	<link href="style.css" rel="stylesheet" type="text/css"/>
-</head>
+  <body class="bg-white">
+    <div>
+      <div class="animation-center">
+        <div style="display: block">
+          <lottie-player
+            src="https://assets1.lottiefiles.com/packages/lf20_8y9IYf.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+      </div>
+      <div class="loading-text" id="loading-text">Loading useless fact...</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-<body class="bg-blue">
-	<div>
-		<div class="animation-center">
-			<div style="display:block;">
-				<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_8y9IYf.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
-			</div>
-		</div>
-		<div class="loading-text" id="loading-text">Loading useless fact...</div>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-	</script>
-	<script src="loadingscript.js"></script>
-</body>
-
+    <script src="loadingscript.js"></script>
+  </body>
 </html>
