@@ -1,17 +1,23 @@
-*,html{font-family: Arial, Helvetica, sans-serif;}
-.bg-blue{background: #153863;}
-.animation-center{  display: flex;
+*,
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.bg-white {
+  background: #ffffff;
+}
+.animation-center {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /*if we only want this item to be smack center*/
- }
-.loading-text{
+}
+.loading-text {
   padding: 10px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-    top: -250px;
-    position: relative;
-    font-style: italic;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: darkblue;
+  top: -250px;
+  position: relative;
+  font-style: italic;
 }
