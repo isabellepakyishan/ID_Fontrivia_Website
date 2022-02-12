@@ -1,8 +1,8 @@
 // Script for Loading Page
-setTimeout(loadHomePage, 5000);
+setTimeout(loadLoginPage, 5000);
 
-function loadHomePage() {
-  window.location.href = "index.html";
+function loadLoginPage() {
+  window.location.href = "login.html";
 }
 
 let uselessFactsAPI = "https://uselessfacts.jsph.pl//random.json?language=en";
