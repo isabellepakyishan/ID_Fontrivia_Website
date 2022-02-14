@@ -11,13 +11,13 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="icon" href="Media/Fontrivia logo.png">
-    <title>Register an Account</title>
+    <link rel="icon" href="Media/Fontrivia logo.png" />
+    <title>Fontrivia | Register an Account</title>
   </head>
-  <body>
+  <body class="register">
     <section>
       <div class="container">
-        <form action="">
+        <form id="registerForm" action="">
           <div>
             <h1>Register an Account</h1>
             <hr />
@@ -52,14 +52,16 @@
                 id="psw-repeat"
                 required
               />
+              <span id="message"></span>
             </div>
             <hr />
             <p>
               By creating an account you agree to our
               <a href="#">Terms & Privacy</a>.
             </p>
-            </div>
-            <button type="submit" class="btn btn-default">Register</button>
+            <button type="submit" class="btn btn-default" id="register">
+              Register
+            </button>
             <div class="signin">
               <p>Already have an account? <a href="login.html">Login</a>.</p>
             </div>
@@ -68,4 +70,10 @@
       </div>
     </section>
   </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="loadingscript.js"></script>
 </html>
