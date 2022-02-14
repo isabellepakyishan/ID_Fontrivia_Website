@@ -27,27 +27,27 @@ html {
 h1 {
   line-height: 2 !important;
 }
-/* BOOTSTRAP CSS's START */
 
+/* BOOTSTRAP CSS's START */
 .container {
   background-color: #e3f6f5;
-  margin: 2%;
+  margin-top: 8%;
   text-align: center;
   height: 75%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .15);
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 15%);
 }
 
 .btn-default {
   background-color: #ffd803 !important;
   border: black;
 }
-/* BOOTSTRAP CSS's END */
-/* LOGIN CSS START */
+/* BOOTSTRAP CSS END */
 
+/* LOGIN CSS START */
 .btn {
   color: #272343;
   border: black !important;
@@ -62,5 +62,3 @@ h1 {
 .signin {
   margin-top: 50px;
 }
-
-
