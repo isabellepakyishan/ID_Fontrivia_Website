@@ -11,7 +11,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /*if we only want this item to be smack center*/
+  height: 90vh; /*if we only want this item to be smack center*/
 }
 .loading-text {
   padding: 10px;
@@ -61,4 +61,15 @@ h1 {
 
 .signin {
   margin-top: 50px;
+}
+/* Modify brand and text color */
+
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+  color: #272343 !important;
+  background-color: #e3f6f5 !important;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #272343 !important;
 }
