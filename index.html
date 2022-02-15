@@ -1,6 +1,3 @@
-<!--             let ranFontIndex = Math.floor(Math.random() * response.result.items.length);
-            console.log(ranFontIndex);
-            console.log("Response", response.result.items[ranFontIndex]);  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,6 +27,11 @@
                     let ranFontIndex = Math.floor(Math.random() * response.result.items.length);
                     console.log(ranFontIndex);
                     console.log("Response", response.result.items[ranFontIndex]); 
+                    let fontName = response.result.items[ranFontIndex].family;
+                    console.log("Font name:", fontName);
+                    let fontCategory = response.result.items[ranFontIndex].category;
+                    console.log("Font Category:", fontCategory);
+
                   },
                   function(err) { console.error("Execute error", err); });
       }
@@ -78,6 +80,12 @@
     </nav>
     <button onclick="loadClient()">load</button>
     <button onclick="execute()">execute</button>
+    <div class="container">
+      <div class="setwords">
+        <h2 id="setwords">The quick brown fox jumps over the lazy dog.</h2>
+      </div>
+    </div>
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script
