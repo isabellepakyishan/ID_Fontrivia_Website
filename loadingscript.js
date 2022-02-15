@@ -1,28 +1,32 @@
 const apikey = "6207718034fd6215658583f4";
 
+function loadUselessFacts() {
+  let uselessFactsAPI = "https://uselessfacts.jsph.pl//random.json?language=en";
+
+  let loadRandomFact = function () {
+    fetch(uselessFactsAPI)
+      .then((response) => response.json())
+      .then(function (data) {
+        console.log(data);
+        $(".loading-text").html(data.text);
+      });
+  };
+
+  loadRandomFact();
+}
+
 $("#registerForm").submit(() => false);
+$("#loginForm").submit(() => false);
 
 function checkCurrentPage() {
   //Script for loadingpage.html
   if ($("body").hasClass("loadingpage")) {
     setTimeout(loadLoginPage, 5000);
+    loadUselessFacts();
 
     function loadLoginPage() {
       window.location.href = "login.html";
     }
-
-    let uselessFactsAPI =
-      "https://uselessfacts.jsph.pl//random.json?language=en";
-
-    let loadRandomFact = function () {
-      fetch(uselessFactsAPI)
-        .then((response) => response.json())
-        .then(function (data) {
-          console.log(data);
-          $(".loading-text").html(data.text);
-        });
-    };
-    loadRandomFact();
   }
 
   //Script for register.html
@@ -36,7 +40,6 @@ function checkCurrentPage() {
     });
 
     $("#register").on("click", function () {
-      alert("Starting registration");
       let emailAdd = $("#email").val();
       let password = $("#psw-repeat").val();
       let jsondata = { "email-address": emailAdd, password: password };
@@ -62,6 +65,41 @@ function checkCurrentPage() {
 
   //Script for login.html
   if ($("body").hasClass("login")) {
+    $("#login").on("click", function () {
+      let enteredEmailAdd = $("#email").val();
+      let enteredPassword = $("#psw").val();
+
+      var settings = {
+        async: true,
+        crossDomain: true,
+        url: "https://fontrivia-0c30.restdb.io/rest/user-login",
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "x-apikey": apikey,
+          "cache-control": "no-cache",
+        },
+      };
+
+      $.ajax(settings).done(function (response) {
+        for (var i = 0; i < response.length; i++) {
+          let tempEmailAdd = response[i]["email-address"];
+          let tempPassword = response[i]["password"];
+
+          if (
+            enteredEmailAdd == tempEmailAdd &&
+            enteredPassword == tempPassword
+          ) {
+            alert("Login Successful");
+            setTimeout(loadMainPage, 1000);
+
+            function loadMainPage() {
+              window.location.href = "index.html";
+            }
+          }
+        }
+      });
+    });
   }
 
   //Script for index.html
@@ -82,38 +120,3 @@ function checkCurrentPage() {
 }
 
 checkCurrentPage();
-
-// // Script for Loading Page
-// setTimeout(loadLoginPage, 5000);
-
-// function loadLoginPage() {
-//   window.location.href = "login.html";
-// }
-
-// let uselessFactsAPI = "https://uselessfacts.jsph.pl//random.json?language=en";
-
-// let loadRandomFact = function () {
-//   fetch(uselessFactsAPI)
-//     .then((response) => response.json())
-//     .then(function (data) {
-//       console.log(data);
-//       $(".loading-text").html(data.text);
-//     });
-// };
-// loadRandomFact();
-
-// //Script for Register an Account page
-
-// //Script for Main Page
-// let fontsAPI =
-//   "https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic";
-
-// let loadFont = function () {
-//   fetch(fontsAPI)
-//     .then((response) => response.json())
-//     .then(function (data) {
-//       console.log(data);
-//       $(".loading-text").html(data.text);
-//     });
-// };
-// loadFont();
