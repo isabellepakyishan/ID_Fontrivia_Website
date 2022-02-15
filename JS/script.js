@@ -102,21 +102,11 @@ function checkCurrentPage() {
     });
   }
 
-  //Script for index.html
-  if ($("body").hasClass("index")) {
-    let fontsAPI =
-      "https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic";
-
-    let loadFont = function () {
-      fetch(fontsAPI)
-        .then((response) => response.json())
-        .then(function (data) {
-          console.log(data);
-          $(".loading-text").html(data.text);
-        });
-    };
-    loadFont();
-  }
+  // //Script for index.html
+  // if ($("body").hasClass("index")) {
+  //   $("#loadClient").on("click", loadClient());
+  //   $("#execute").on("click", execute());
+  // }
 }
 
 checkCurrentPage();
