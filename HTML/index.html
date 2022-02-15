@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../CSS/style.css" />
@@ -66,34 +66,143 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../HTML/index.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../HTML/index.html">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../HTML/index.html">Contact Me</a>
-          </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="../HTML/login.html"
-              ><span class="material-icons">logout</span></a
+            <a class="nav-link" href="../HTML/index.html" data-toggle="tab"
+              ><span class="material-icons-round">home</span>Home
+              <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../HTML/index.html">Portfolio</a>
+            <a class="nav-link" href="../HTML/index.html" data-toggle="tab"
+              ><span class="material-icons-round">touch_app</span>Typography</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../HTML/index.html">Contact Me</a>
+            <a class="nav-link" href="../HTML/index.html" data-toggle="tab"
+              ><span class="material-icons-round"> assignment_turned_in </span
+              >Test your Knowledge</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../HTML/login.html"
+              ><span class="material-icons-round">logout</span> Logout
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../HTML/index.html"
+              ><span class="material-icons-round">account_circle</span> View
+              Account
+            </a>
           </li>
         </ul>
       </div>
     </nav>
+
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carouselExampleIndicators"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="../Media/font-types.png"
+            alt="First slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: #272343; font-weight: bold">Typography</h5>
+            <p style="color: #272343">
+              Learn what each font is about and how to use them
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="../Media/bg-colour.png"
+            alt="Second slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: #272343; font-weight: bold">Sans Serif</h5>
+            <p style="color: #272343">
+              Learn what each font is about and how to use them
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="../Media/bg-colour.png"
+            alt="Third slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: #272343; font-weight: bold">Serif</h5>
+            <p style="color: #272343">
+              Learn what each font is about and how to use them
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="../Media/bg-colour.png"
+            alt="Fourth slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: #272343; font-weight: bold">Monospace</h5>
+            <p style="color: #272343">
+              Learn what each font is about and how to use them
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="../Media/bg-colour.png"
+            alt="Fifth slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5 style="color: #272343; font-weight: bold">Display</h5>
+            <p style="color: #272343">
+              Learn what each font is about and how to use them
+            </p>
+          </div>
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleIndicators"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
     <button onclick="loadClient()">load</button>
     <button onclick="execute()">execute</button>
   </body>
