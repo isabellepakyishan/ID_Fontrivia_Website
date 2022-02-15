@@ -25,7 +25,7 @@ function checkCurrentPage() {
     loadUselessFacts();
 
     function loadLoginPage() {
-      window.location.href = "login.html";
+      window.location.href = "../HTML/login.html";
     }
   }
 
@@ -94,7 +94,7 @@ function checkCurrentPage() {
             setTimeout(loadMainPage, 1000);
 
             function loadMainPage() {
-              window.location.href = "index.html";
+              window.location.href = "../HTML/index.html";
             }
           }
         }
