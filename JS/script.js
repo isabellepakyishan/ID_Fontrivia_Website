@@ -104,24 +104,22 @@ function checkCurrentPage() {
             setTimeout(loadMainPage, 1000);
 
             function loadMainPage() {
-              window.location.href = "../HTML/index.html";
+              window.location.href = `../HTML/index.html?username=${tempUsername}`;
             }
           }
         }
-
       });
     });
   }
-
-  //Script for index.html
-  // if ($("body").hasClass("index") && currentUsername != " ") {
-  //   console.log(`this is ${currentUsername}`)
-  //   $("span#username").val(`Hello ${currentUsername}`)
-  // }
 }
+
+
+(() => {
+  if ($('body').hasClass('index')) {
+    const param = new URLSearchParams(window.location.search);
+    const username = param.get('username');
+    $("#current-username")[0].innerText = `Hello ${username}!`;
+  }
+})();
 
 checkCurrentPage();
-
-function changeUsername() {
-  $("span#username").val(`Hello ${currentUsername}`);
-}
