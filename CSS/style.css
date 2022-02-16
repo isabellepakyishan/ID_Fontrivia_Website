@@ -80,3 +80,29 @@ h1 {
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23272343' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
+
+@media screen and (min-width: 1400px) {
+  .carousel-inner .carousel-item .carousel-img {
+    width: 1920px;
+    height: auto;
+  }
+}
+@media screen and (min-width: 769px) {
+  .carousel-inner .carousel-item .carousel-img {
+    width: 1920px;
+    height: auto;
+  }
+}
+@media screen and (min-width: 577px) {
+  .carousel-inner .carousel-item .carousel-img {
+    width: 800px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 591px) {
+  .carousel-inner .carousel-item .carousel-img {
+    width: 700px;
+    height: 500px;
+    object-fit: cover;
+  }
+}
