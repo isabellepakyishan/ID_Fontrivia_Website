@@ -1,4 +1,5 @@
 const apikey = "6207718034fd6215658583f4";
+let currentUsername = " ";
 
 function loadUselessFacts() {
   let uselessFactsAPI = "https://uselessfacts.jsph.pl//random.json?language=en";
@@ -40,9 +41,14 @@ function checkCurrentPage() {
     });
 
     $("#register").on("click", function () {
+      let userName = $("#username").val();
       let emailAdd = $("#email").val();
       let password = $("#psw-repeat").val();
-      let jsondata = { "email-address": emailAdd, password: password };
+      let jsondata = {
+        username: userName,
+        "email-address": emailAdd,
+        password: password
+      };
       let settings = {
         async: true,
         crossDomain: true,
@@ -58,7 +64,9 @@ function checkCurrentPage() {
       };
 
       $.ajax(settings).done(function (response) {
-        console.log(response);
+        console.log(`Data for ${userName} has been added.`)
+        alert("Registration successful. Click [OK] to login.");
+        window.location.href = "../HTML/login.html";
       });
     });
   }
@@ -83,6 +91,7 @@ function checkCurrentPage() {
 
       $.ajax(settings).done(function (response) {
         for (var i = 0; i < response.length; i++) {
+          let tempUsername = response[i]["username"];
           let tempEmailAdd = response[i]["email-address"];
           let tempPassword = response[i]["password"];
 
@@ -90,7 +99,8 @@ function checkCurrentPage() {
             enteredEmailAdd == tempEmailAdd &&
             enteredPassword == tempPassword
           ) {
-            alert("Login Successful");
+            alert(`Login Successful. Welcome ${tempUsername}!`);
+            currentUsername = tempUsername;
             setTimeout(loadMainPage, 1000);
 
             function loadMainPage() {
@@ -98,15 +108,20 @@ function checkCurrentPage() {
             }
           }
         }
+
       });
     });
   }
 
-  // //Script for index.html
-  // if ($("body").hasClass("index")) {
-  //   $("#loadClient").on("click", loadClient());
-  //   $("#execute").on("click", execute());
+  //Script for index.html
+  // if ($("body").hasClass("index") && currentUsername != " ") {
+  //   console.log(`this is ${currentUsername}`)
+  //   $("span#username").val(`Hello ${currentUsername}`)
   // }
 }
 
 checkCurrentPage();
+
+function changeUsername() {
+  $("span#username").val(`Hello ${currentUsername}`);
+}
