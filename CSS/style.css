@@ -71,6 +71,7 @@ h1 {
 .nav-link,
 .navbar-brand {
   color: #272343 !important;
+  display: flex;
 }
 
 .carousel-control-prev-icon {
@@ -105,4 +106,51 @@ h1 {
     height: 500px;
     object-fit: cover;
   }
+}
+
+#testYourKnowledge.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 5vh;
+}
+
+.container > a#startQuiz {
+  background-color: #bae8e8;
+  color: #272343;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px 10px;
+  border: 2px #232946 solid;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.container > a#startQuiz:hover {
+  transition: background-color 0.2s;
+  background-color: #ffd803;
+  color: #272343;
+}
+
+.nav-link:hover {
+  padding: 3px;
+  transition: background-color 0.2s;
+  background-color: #ffd803;
+  color: #272343;
+  border-radius: 20px;
+  border: 2px #232946 solid;
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 50%;
+  background-color: #272343;
+  height: 1px;
 }
