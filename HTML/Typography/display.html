@@ -11,9 +11,49 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
     <link rel="stylesheet" href="../../CSS/style.css" />
     <title>Fontrivia | Display</title>
-    <link rel="icon" href="../Media/Fontrivia logo.png" />
+    <link rel="icon" href="../../Media/Fontrivialogo.png" />
     <script src="https://apis.google.com/js/api.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        function loadClient() {
+            gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
+            return gapi.client
+                .load("https://www.googleapis.com/discovery/v1/apis/webfonts/v1/rest")
+                .then(
+                    function () {
+                        console.log("GAPI client loaded for API");
+                    },
+                    function (err) {
+                        console.error("Error loading GAPI client for API", err);
+                    }
+                );
+        }
+        // Make sure the client is loaded before calling this method.
+        function execute() {
+            return gapi.client.webfonts.webfonts.list({}).then(
+                function (response) {
+                    const fontList = ["Underdog", "Henny Penny", "Bungee", "New Rocker", "Lalezar"];
+
+                    const rand = Math.floor(Math.random() * fontList.length);
+
+                    WebFont.load({
+                        google: {
+                            families: [fontList[rand]],
+                        },
+                    });
+
+                    $("#setwords").css("font-family", fontList[rand]);
+                    $("#fontname").html("Font Name:" + " " + fontList[rand]);
+
+                    console.log("Font name:", fontList[rand]);
+                },
+                function (err) {
+                    console.error("Execute error", err);
+                }
+            );
+        }
+        gapi.load("client");
+    </script>
 </head>
 
 <body class="index">
@@ -62,7 +102,49 @@
             </ul>
         </div>
     </nav>
+    <div class="font-container">
+        <h2 class="typing"><u><span class="auto-input"></span></u></h2>
+    </div>
+    <div class="container column-container">
+        <h4 id="setwords">LIGHTS! CAMERA! ACTION!</h4>
+        <p id="fontname"></p>
+        <button onclick="loadClient()" id="loadfont" class="btn btn-default">Load</button>
+        <button onclick="execute()" id="executefont" class="btn btn-default">Randomize me!</button>
+        <hr>
+        <p>The above are examples of Display fonts</p>
+        <p>try loading and randomizing!</p>
+    </div>
+    <p class="text-center text-wrap center-space">What's a Display font?</p>
+    <p class="text-center text-wrap center-space">Display fonts are well, fonts to display things, more specifically they are used for 
+        headlines; they're best for you to use at 30 pixels or more.
+    </p>
+    <p class="text-center text-wrap center-space">Display typographyies will often have more eccentric and variable designs than the simple,
+        relatively restrained typographies generally used for body text.
+    </p>
+    <p class="text-center text-wrap center-space">One flaw about the Display font is that it is really difficult to read when its pixel
+        size is small. You can compare the two passages below using 2 different font types (Display font and Serif font).
 
+    </p>
+    <div class="container column-container">
+            <img src="../../Media/displayfonttext.jpeg" alt="Display" width="90%" height="90%">
+            <hr>
+            <p style="font-weight: bold;">This is using a Display font.</p>
+    </div>
+    <div class="container column-container">
+        <img src="../../Media/seriffonttext.jpeg" alt="Display" width="90%" height="90%">
+        <hr>
+        <p style="font-weight: bold;">This is using a Serif font.</p>
+    </div>
+    <p class="text-center text-wrap center-space">Evidently, anyone who can see properly would agree that the paragraph written in the serif
+        font is easier to read than the display font.
+    </p>
+    <p class="text-center text-wrap center-space">For design, if you need a font for your header that stands out of the crowd and captures your
+        users attention, then definitely go for a display font.
+    </p>
+    <div class="column-container">
+        <a href="../../HTML/Typography/script.html"><button class="btn btn-default">Next Page</button></a>
+    </div>
+    <div class="margin"></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -75,5 +157,21 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
 </script>
 <script src="../../JS/currentusername.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var typed = new Typed(".auto-input", {
+    strings: [
+    "Display",
+    '"What a title"', // IDK WHAT TO WRITE HERE ISABELLE HELPPP
+    ],
+    typeSpeed: 150,
+    backSpeed: 50,
+    loop: true,
+    });
+    $("#loadfont").on("click", function(){
+        $(this).hide();
+        $("#executefont").show();
+    });
+    </script>
 
 </html>
