@@ -1,3 +1,8 @@
+var ranFontIndex;
+var fontName;
+var fontCategory;
+var correctCounter;
+
 function loadClient() {
     gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
     return gapi.client
@@ -15,12 +20,12 @@ function loadClient() {
 function execute() {
     return gapi.client.webfonts.webfonts.list({}).then(
         function (response) {
-            let ranFontIndex = Math.floor(
+            ranFontIndex = Math.floor(
                 Math.random() * response.result.items.length
             );
             console.log(ranFontIndex);
             console.log("Response", response.result.items[ranFontIndex]);
-            let fontName = response.result.items[ranFontIndex].family;
+            fontName = response.result.items[ranFontIndex].family;
 
             WebFont.load({
                 google: {
@@ -31,12 +36,50 @@ function execute() {
             $("#setwords").css("font-family", fontName);
 
             console.log("Font name:", fontName);
-            let fontCategory = response.result.items[ranFontIndex].category;
+            fontCategory = response.result.items[ranFontIndex].category;
             console.log("Font Category:", fontCategory);
+
+            $("#sans-serif-option").on("click", function () {
+                if (fontCategory == "sans-serif") {
+                    alert("Correct");
+                }
+            });
+            $("#serif-option").on("click", function () {
+                if (fontCategory == "serif") {
+                    alert("Correct");
+                }
+            });
+            $("#monospace-option").on("click", function () {
+                if (fontCategory == "monospace") {
+                    alert("Correct");
+                }
+            });
+            $("#display-option").on("click", function () {
+                if (fontCategory == "display") {
+                    alert("Correct");
+                }
+            });
+            $("#script-option").on("click", function () {
+                if (fontCategory == "handwriting") {
+                    alert("Correct");
+                }
+            })
         },
         function (err) {
             console.error("Execute error", err);
-        }
+        },
     );
 }
 gapi.load("client");
+
+$("#firstLoad").on("click", function () {
+    $(this).hide();
+});
+
+// $("#sans-serif-option").on("click", function () {
+//     if (fontCategory == "sans-serif") {
+//         alert("Correct");
+//     } else {
+//         alert("Wrong");
+//     }
+// })
