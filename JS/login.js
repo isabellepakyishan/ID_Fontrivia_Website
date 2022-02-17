@@ -1,4 +1,9 @@
 const apikey = "6207718034fd6215658583f4";
+var tempUsername;
+var currentUsername = {
+    finalUsername: tempUsername,
+}
+
 $("#loginForm").submit(() => false);
 
 $("#login").on("click", function () {
@@ -19,7 +24,7 @@ $("#login").on("click", function () {
 
     $.ajax(settings).done(function (response) {
         for (var i = 0; i < response.length; i++) {
-            let tempUsername = response[i]["username"];
+            tempUsername = response[i]["username"];
             let tempEmailAdd = response[i]["email-address"];
             let tempPassword = response[i]["password"];
 
@@ -27,13 +32,18 @@ $("#login").on("click", function () {
                 enteredEmailAdd == tempEmailAdd &&
                 enteredPassword == tempPassword
             ) {
-                alert(`Login Successful. Welcome ${tempUsername}!`);
+                alert(`Login Successful. Welcome ${currentUsername.finalUsername}!`);
                 setTimeout(loadMainPage, 1000);
 
                 function loadMainPage() {
-                    window.location.href = `../HTML/index.html?username=${tempUsername}`;
+                    window.location.href = `../HTML/index.html?username=${currentUsername.finalUsername}`;
                 }
+                currentUsername.finalUsername = tempUsername;
             }
         }
     });
 });
+
+// export default {
+//     currentUsername
+// }
