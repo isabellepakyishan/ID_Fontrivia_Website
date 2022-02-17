@@ -18,6 +18,7 @@
     <script>
         function loadClient() {
             gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
+            $("#setwords").html("Click it again to see Pangrams in different Serif fonts!");
             return gapi.client
                 .load("https://www.googleapis.com/discovery/v1/apis/webfonts/v1/rest")
                 .then(
@@ -34,9 +35,9 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Hina Mincho", "Zilla Slab", "Sura", "Sorts Mill Goudy", "Scope One"];
-
+                    const sentenceList = ["The quick brown fox jumps over the lazy dog.", "The five boxing wizards jump quickly.", "Pack my box with five dozen liquor jugs."]
                     const rand = Math.floor(Math.random() * fontList.length);
-
+                    const randSentence = Math.floor(Math.random() * sentenceList.length);
                     WebFont.load({
                         google: {
                             families: [fontList[rand]],
@@ -44,8 +45,8 @@
                     });
 
                     $("#setwords").css("font-family", fontList[rand]);
+                    $("#setwords").html(sentenceList[randSentence]);
                     $("#fontname").html("Font Name:" + " " + fontList[rand]);
-
                     console.log("Font name:", fontList[rand]);
                 },
                 function (err) {
@@ -108,7 +109,7 @@
         <h2 class="typing"><u><span class="auto-input"></span></u></h2>
     </div>
     <div class="container column-container">
-        <h4 id="setwords">The quick brown fox jumps over the lazy dog.</h4>
+        <h4 id="setwords">Click the yellow button!</h4>
         <p id="fontname"></p>
         <button onclick="loadClient()" id="loadfont" class="btn btn-default">Load</button>
         <button onclick="execute()" id="executefont" class="btn btn-default">Randomize me!</button>
