@@ -33,7 +33,7 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Cousine", "Azeret Mono", "Red Hat Mono", "Source Code Pro", "Nanum Gothic Coding"];
-                    const wordList = ['Console.WriteLine("Hello World!")', 'console.log("Hello World!")', 'print("Hello World!")', 'System.out.println("Hello, World!")', 'std::cout << "Hello World!"']
+                    const wordList = ['Console.WriteLine("Hello World!")', 'console.log("Hello World!")', 'print("Hello World!")', 'System.out.println("Hello World!")', 'std::cout << "Hello World!"']
                     const rand = Math.floor(Math.random() * 5);
                     WebFont.load({
                         google: {
