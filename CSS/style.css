@@ -136,8 +136,9 @@ h1 {
   color: #272343;
 }
 
+.navbar-brand:hover,
 .nav-link:hover {
-  padding: 3px;
+  padding: 3px 8px;
   transition: background-color 0.2s;
   background-color: #ffd803;
   color: #272343;
@@ -147,6 +148,14 @@ h1 {
 }
 
 hr {
+  border: 0;
+  clear: both;
+  display: block;
+  background-color: #272343;
+  height: 1px;
+}
+
+hr#break {
   border: 0;
   clear: both;
   display: block;
