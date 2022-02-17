@@ -33,9 +33,9 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Underdog", "Henny Penny", "Bungee", "New Rocker", "Lalezar"];
-
+                    const sentenceList = ["LIGHTS! CAMERA! ACTION!", "NGEE ANN POLYTECHNIC", "Arts and Culture"]
                     const rand = Math.floor(Math.random() * fontList.length);
-
+                    const randSentence = Math.floor(Math.random() * sentenceList.length);
                     WebFont.load({
                         google: {
                             families: [fontList[rand]],
@@ -43,6 +43,7 @@
                     });
 
                     $("#setwords").css("font-family", fontList[rand]);
+                    $("#setwords").html(sentenceList[randSentence]);
                     $("#fontname").html("Font Name:" + " " + fontList[rand]);
 
                     console.log("Font name:", fontList[rand]);
@@ -163,7 +164,7 @@
     var typed = new Typed(".auto-input", {
     strings: [
     "Display",
-    '"What a title"', // IDK WHAT TO WRITE HERE ISABELLE HELPPP
+    '"What a title!"', // IDK WHAT TO WRITE HERE ISABELLE HELPPP
     ],
     typeSpeed: 150,
     backSpeed: 50,

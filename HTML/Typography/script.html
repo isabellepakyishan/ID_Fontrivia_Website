@@ -33,9 +33,12 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Engagement", "Handlee", "Niconne", "Vibur", "Homemade Apple"];
-    
+                    const sentenceList = ["Happiness is found in that moment you stop trying to be like everyone else, and simply be yourself",
+                                        "Don't limit your challenges, challenge your limits",
+                                        "If you stumble, make it part of the dance"]
                     const rand = Math.floor(Math.random() * fontList.length);
-    
+                    const randSentence = Math.floor(Math.random() * sentenceList.length);
+
                     WebFont.load({
                         google: {
                             families: [fontList[rand]],
@@ -43,6 +46,7 @@
                     });
     
                     $("#setwords").css("font-family", fontList[rand]);
+                    $("#setwords").html(sentenceList[randSentence]);
                     $("#fontname").html("Font Name:" + " " + fontList[rand]);
     
                     console.log("Font name:", fontList[rand]);
