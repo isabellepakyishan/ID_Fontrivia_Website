@@ -262,3 +262,22 @@ a.quiz-next {
   right: 0;
   position: absolute;
 }
+
+.toBeHidden {
+  display: flex;
+  position: absolute;
+  background-color: #bae8e8;
+  color: #272343;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 8px 10px;
+  border: 2px #232946 solid;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+  display: inline-block;
+}
