@@ -1,3 +1,5 @@
+let updatingStreakScore = sessionStorage.getItem('streak-score');
+
 function loadClient() {
     gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
     return gapi.client
@@ -59,12 +61,18 @@ function execute() {
 
                 if (i == idxCat) {
                     $(option).on('click', function () {
-                        alert('correct')
+                        updatingStreakScore++
+                        sessionStorage.setItem('streak-score', updatingStreakScore)
+
+                        alert('Your answer is correct!')
                         execute();
                     })
                 } else {
                     $(option).on('click', function () {
-                        alert('no correct')
+                        updatingStreakScore = 0
+                        sessionStorage.setItem('streak-score', updatingStreakScore)
+
+                        alert('Your answer is incorrect. Your streak score has been reset to 0 :((')
                     })
                 }
             }
