@@ -32,8 +32,13 @@
         function execute() {
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
-                    const fontList = ["Cousine", "Azeret Mono", "Red Hat Mono", "Source Code Pro", "Nanum Gothic Coding"];
-                    const wordList = ['Console.WriteLine("Hello World!")', 'console.log("Hello World!")', 'print("Hello World!")', 'System.out.println("Hello World!")', 'std::cout << "Hello World!"']
+                    const fontList = ["Cousine", "Azeret Mono", "Red Hat Mono", "Source Code Pro",
+                        "Nanum Gothic Coding"
+                    ];
+                    const wordList = ['Console.WriteLine("Hello World!")', 'console.log("Hello World!")',
+                        'print("Hello World!")', 'System.out.println("Hello World!")',
+                        'std::cout << "Hello World!"'
+                    ]
                     const rand = Math.floor(Math.random() * 5);
                     WebFont.load({
                         google: {
@@ -94,8 +99,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="account" href="../../HTML/index.html"><span
-                            class="material-icons-two-tone">account_circle</span> View
-                        Account
+                            class="material-icons-two-tone">account_circle</span> <span id="current-username">View
+                            Account</span>
                     </a>
                 </li>
             </ul>
@@ -114,29 +119,38 @@
         <p>try loading and randomizing!</p>
     </div>
     <p class="text-center text-wrap center-space">What exactly are Monospace fonts?</p>
-    <p class="text-center text-wrap center-space">Monospace fonts are close relatives to the typewriter. They get their name from
+    <p class="text-center text-wrap center-space">Monospace fonts are close relatives to the typewriter. They get their
+        name from
         the amount of space each character uses.
     </p>
-    <p class="text-center text-wrap center-space">As you will see below, you will be able to tell the difference between the spaces 
+    <p class="text-center text-wrap center-space">As you will see below, you will be able to tell the difference between
+        the spaces
         from the words "Proportional" and "Monospace".
     </p>
     <img class="container" src="../../Media/monospace.jpeg" alt="Proportional vs Monospace" width="75%" height="75%">
-    <p class="text-center text-wrap center-space">Each letter in the word "Proportional" uses the amount of space it needs and no more
-        to complete the word so more letters can be fit into one space. In "Monospace" however, each letter uses the same amount of space
+    <p class="text-center text-wrap center-space">Each letter in the word "Proportional" uses the amount of space it
+        needs and no more
+        to complete the word so more letters can be fit into one space. In "Monospace" however, each letter uses the
+        same amount of space
         as each other, making it look very digital.
     </p>
-    <p class="text-center text-wrap center-space">Just to save you the time, "Proportional" is a 12-letter word and it uses the same amount
+    <p class="text-center text-wrap center-space">Just to save you the time, "Proportional" is a 12-letter word and it
+        uses the same amount
         of space as the word "Monospace" which is a 9-letter word using the Monospace font.
     </p>
-    <p class="text-center text-wrap center-space">In design terms, it is tricky to use appropriately. If you want to use this font, be sure 
+    <p class="text-center text-wrap center-space">In design terms, it is tricky to use appropriately. If you want to use
+        this font, be sure
         to use it sparingly or most importantly, correctly.
     </p>
     <img src="../../Media/monospaceexample.jpeg" alt="font examples" class="container" width="75%" height="75%">
-    <p class="text-center text-wrap center-space">The words "gathering friends around great food & beer" above are written in a Monospace font,
+    <p class="text-center text-wrap center-space">The words "gathering friends around great food & beer" above are
+        written in a Monospace font,
         they use it sparingly here for a pleasant aesthetic effect.
     </p>
-    <p class="text-center text-wrap center-space">As a closing, Monospace has its uses in designing. However, don't dedicate your entire page to
-        this font as it may not look aesthetically pleasing. Well, unless you're making a website that looks like a software programme.
+    <p class="text-center text-wrap center-space">As a closing, Monospace has its uses in designing. However, don't
+        dedicate your entire page to
+        this font as it may not look aesthetically pleasing. Well, unless you're making a website that looks like a
+        software programme.
     </p>
     <div class="column-container">
         <a href="../../HTML/Typography/display.html"><button class="btn btn-default">Next Page</button></a>
@@ -157,18 +171,30 @@
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var typed = new Typed(".auto-input", {
-    strings: [
-    "Monospace",
-    "A Coders Friend",
-    ],
-    typeSpeed: 150,
-    backSpeed: 50,
-    loop: true,
+        strings: [
+            "Monospace",
+            "A Coders Friend",
+        ],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true,
     });
-    $("#loadfont").on("click", function(){
+    $("#loadfont").on("click", function () {
         $(this).hide();
         $("#executefont").show();
     });
-    </script>
+
+    (() => {
+        const username = sessionStorage.getItem('username')
+        const hasUsername = !(username === '' | username === null | username === undefined)
+
+        if (hasUsername) {
+            $("#current-username")[0].innerText = `Hello ${username}!`;
+            console.log(username)
+        }
+
+
+    })();
+</script>
 
 </html>

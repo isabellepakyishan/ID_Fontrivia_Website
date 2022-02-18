@@ -35,7 +35,9 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Hina Mincho", "Zilla Slab", "Sura", "Sorts Mill Goudy", "Scope One"];
-                    const sentenceList = ["The quick brown fox jumps over the lazy dog.", "The five boxing wizards jump quickly.", "Pack my box with five dozen liquor jugs."]
+                    const sentenceList = ["The quick brown fox jumps over the lazy dog.",
+                        "The five boxing wizards jump quickly.", "Pack my box with five dozen liquor jugs."
+                    ]
                     const rand = Math.floor(Math.random() * fontList.length);
                     const randSentence = Math.floor(Math.random() * sentenceList.length);
                     WebFont.load({
@@ -98,8 +100,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="account" href="../../HTML/index.html"><span
-                            class="material-icons-two-tone">account_circle</span> View
-                        Account
+                            class="material-icons-two-tone">account_circle</span> <span id="current-username">View
+                            Account</span>
                     </a>
                 </li>
             </ul>
@@ -117,14 +119,17 @@
         <p>The above are examples of Serif fonts</p>
         <p>try loading and randomizing!</p>
     </div>
-    <p class="text-center text-wrap center-space">Despite the similarities in their name, Sans-Serif fonts and Serif fonts can be easily differentiated.</p>
+    <p class="text-center text-wrap center-space">Despite the similarities in their name, Sans-Serif fonts and Serif
+        fonts can be easily differentiated.</p>
     <img class="container" src="../../Media/pointyend.jpeg" alt="serif examples" width="75%" height="75%">
     <p class="text-center text-wrap center-space">The "hi" on the left panel is using the Sans-Serif
         font whereas the latter is using the Serif font.</p>
-    <p class="text-center text-wrap center-space">As previously mentioned, if you look closely, you will be able to see the differences
+    <p class="text-center text-wrap center-space">As previously mentioned, if you look closely, you will be able to see
+        the differences
         between both font typographies. Those are the serifs. They are absent in Sans-Serif fonts.</p>
     <img src="../../Media/fontexamples.jpeg" alt="font examples" class="container" width="75%" height="75%">
-    <p class="text-center text-wrap center-space"> Using the same picture when learning about San-Serif fonts, above shows you
+    <p class="text-center text-wrap center-space"> Using the same picture when learning about San-Serif fonts, above
+        shows you
         the difference between Arial (a sans-serif font) and Times New Roman (a serif font)</p>
     <p class="text-center text-wrap center-space">Generally, Serif fonts tend to look more: </p>
     <ul class="column-container">
@@ -132,8 +137,10 @@
         <li> formal</li>
         <li> classic</li>
     </ul>
-    <p class="text-center text-wrap center-space">Similar to Sans-Serif fonts, Serif fonts are a good form of typography to use.
-        Espescially when you are writing something that is formal. Typically, you would find that print publications like books
+    <p class="text-center text-wrap center-space">Similar to Sans-Serif fonts, Serif fonts are a good form of typography
+        to use.
+        Espescially when you are writing something that is formal. Typically, you would find that print publications
+        like books
         and newspapers will use serif fonts.</p>
     <div class="column-container">
         <a href="../../HTML/Typography/monospace.html"><button class="btn btn-default">Next Page</button></a>
@@ -166,6 +173,18 @@
         $(this).hide();
         $("#executefont").show();
     });
+
+    (() => {
+        const username = sessionStorage.getItem('username')
+        const hasUsername = !(username === '' | username === null | username === undefined)
+
+        if (hasUsername) {
+            $("#current-username")[0].innerText = `Hello ${username}!`;
+            console.log(username)
+        }
+
+
+    })();
 </script>
 
 </html>

@@ -1,8 +1,4 @@
 const apikey = "6207718034fd6215658583f4";
-var tempUsername;
-var currentUsername = {
-    finalUsername: tempUsername,
-}
 
 $("#loginForm").submit(() => false);
 
@@ -24,26 +20,26 @@ $("#login").on("click", function () {
 
     $.ajax(settings).done(function (response) {
         for (var i = 0; i < response.length; i++) {
-            tempUsername = response[i]["username"];
+            let tempUsername = response[i]["username"];
             let tempEmailAdd = response[i]["email-address"];
             let tempPassword = response[i]["password"];
+            let tempStreakScore = response[i]["streak-score"];
 
             if (
                 enteredEmailAdd == tempEmailAdd &&
                 enteredPassword == tempPassword
             ) {
-                alert(`Login Successful. Welcome ${currentUsername.finalUsername}!`);
+                alert(`Login Successful. Welcome ${tempUsername}!`);
                 setTimeout(loadMainPage, 1000);
 
                 function loadMainPage() {
-                    window.location.href = `../HTML/index.html?username=${currentUsername.finalUsername}`;
+                    window.location.href = `../HTML/index.html?username=${tempUsername}`;
+
+                    sessionStorage.setItem('username', tempUsername);
+                    sessionStorage.setItem('email-address', tempEmailAdd);
+                    sessionStorage.setItem('streak-score', tempStreakScore);
                 }
-                currentUsername.finalUsername = tempUsername;
             }
         }
     });
 });
-
-// export default {
-//     currentUsername
-// }

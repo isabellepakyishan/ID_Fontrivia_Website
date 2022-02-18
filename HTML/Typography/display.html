@@ -118,30 +118,36 @@
         <p>try loading and randomizing!</p>
     </div>
     <p class="text-center text-wrap center-space">What's a Display font?</p>
-    <p class="text-center text-wrap center-space">Display fonts are well, fonts to display things, more specifically they are used for 
+    <p class="text-center text-wrap center-space">Display fonts are well, fonts to display things, more specifically
+        they are used for
         headlines; they're best for you to use at 30 pixels or more.
     </p>
-    <p class="text-center text-wrap center-space">Display typographyies will often have more eccentric and variable designs than the simple,
+    <p class="text-center text-wrap center-space">Display typographyies will often have more eccentric and variable
+        designs than the simple,
         relatively restrained typographies generally used for body text.
     </p>
-    <p class="text-center text-wrap center-space">One flaw about the Display font is that it is really difficult to read when its pixel
-        size is small. You can compare the two passages below using 2 different font types (Display font and Serif font).
+    <p class="text-center text-wrap center-space">One flaw about the Display font is that it is really difficult to read
+        when its pixel
+        size is small. You can compare the two passages below using 2 different font types (Display font and Serif
+        font).
 
     </p>
     <div class="container column-container">
-            <img src="../../Media/displayfonttext.jpeg" alt="Display" width="90%" height="90%">
-            <hr>
-            <p style="font-weight: bold;">This is using a Display font.</p>
+        <img src="../../Media/displayfonttext.jpeg" alt="Display" width="90%" height="90%">
+        <hr>
+        <p style="font-weight: bold;">This is using a Display font.</p>
     </div>
     <div class="container column-container">
         <img src="../../Media/seriffonttext.jpeg" alt="Display" width="90%" height="90%">
         <hr>
         <p style="font-weight: bold;">This is using a Serif font.</p>
     </div>
-    <p class="text-center text-wrap center-space">Evidently, anyone who can see properly would agree that the paragraph written in the serif
+    <p class="text-center text-wrap center-space">Evidently, anyone who can see properly would agree that the paragraph
+        written in the serif
         font is easier to read than the display font.
     </p>
-    <p class="text-center text-wrap center-space">For design, if you need a font for your header that stands out of the crowd and captures your
+    <p class="text-center text-wrap center-space">For design, if you need a font for your header that stands out of the
+        crowd and captures your
         users attention, then definitely go for a display font.
     </p>
     <div class="column-container">
@@ -162,18 +168,30 @@
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var typed = new Typed(".auto-input", {
-    strings: [
-    "Display",
-    '"What a title!"', // IDK WHAT TO WRITE HERE ISABELLE HELPPP
-    ],
-    typeSpeed: 150,
-    backSpeed: 50,
-    loop: true,
+        strings: [
+            "Display",
+            '"What a title!"', // IDK WHAT TO WRITE HERE ISABELLE HELPPP
+        ],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true,
     });
-    $("#loadfont").on("click", function(){
+    $("#loadfont").on("click", function () {
         $(this).hide();
         $("#executefont").show();
     });
-    </script>
+
+    (() => {
+        const username = sessionStorage.getItem('username')
+        const hasUsername = !(username === '' | username === null | username === undefined)
+
+        if (hasUsername) {
+            $("#current-username")[0].innerText = `Hello ${username}!`;
+            console.log(username)
+        }
+
+
+    })();
+</script>
 
 </html>
