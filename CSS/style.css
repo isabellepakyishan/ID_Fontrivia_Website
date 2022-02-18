@@ -204,7 +204,7 @@ hr#break {
 }
 
 a.quiz-option,
-a.quiz-next {
+button.quiz-next {
   background-color: #bae8e8;
   color: #272343;
   margin: 10px;
@@ -219,22 +219,23 @@ a.quiz-next {
   max-width: 200px;
   text-align: center;
   display: inline-block;
+  font-family: "Montserrat", sans-serif;
 }
 
 a.quiz-option:hover,
-a.quiz-next:hover {
+button.quiz-next:hover {
   transition: background-color 0.2s;
   background-color: #ffd803;
   color: #272343;
 }
 
-@media screen and (min-width: 582px) {
+@media screen and (min-width: 870px) {
   .quiz-options {
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 20px;
-    width: 25%;
+    width: 18%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -242,7 +243,7 @@ a.quiz-next:hover {
   }
 }
 
-@media screen and (max-width: 582px) {
+@media screen and (max-width: 870px) {
   .quiz-options {
     margin-left: auto;
     margin-right: auto;
@@ -257,7 +258,7 @@ a.quiz-next:hover {
   }
 }
 
-a.quiz-next {
+button.quiz-next {
   display: flex;
   right: 0;
   position: absolute;
@@ -266,7 +267,7 @@ a.quiz-next {
 .toBeHidden {
   display: flex;
   position: absolute;
-  background-color: #bae8e8;
+  background-color: #ffd803;
   color: #272343;
   margin: 10px;
   border-radius: 20px;
@@ -280,4 +281,28 @@ a.quiz-next {
   max-width: 300px;
   text-align: center;
   display: inline-block;
+}
+
+.toBeHidden:hover {
+  color: #272343;
+  text-decoration: none;
+}
+
+.toBeHidden {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.toBeHidden:active,
+.toBeHidden:focus,
+.toBeHidden:hover {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
