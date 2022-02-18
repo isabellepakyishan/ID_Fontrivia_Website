@@ -20,6 +20,7 @@ $("#login").on("click", function () {
 
     $.ajax(settings).done(function (response) {
         for (var i = 0; i < response.length; i++) {
+            let tempApiId = response[i]["_id"];
             let tempUsername = response[i]["username"];
             let tempEmailAdd = response[i]["email-address"];
             let tempPassword = response[i]["password"];
@@ -35,11 +36,20 @@ $("#login").on("click", function () {
                 function loadMainPage() {
                     window.location.href = `../HTML/index.html?username=${tempUsername}`;
 
+                    sessionStorage.setItem('api-id', tempApiId);
                     sessionStorage.setItem('username', tempUsername);
                     sessionStorage.setItem('email-address', tempEmailAdd);
+                    sessionStorage.setItem('password', tempPassword)
                     sessionStorage.setItem('streak-score', tempStreakScore);
+                    return;
                 }
+                return;
             }
         }
+        alert("Login Not Successful");
+
+    }).fail(function () {
+        alert(`Login Unsuccessful. Please try again.`);
     });
+
 });
