@@ -33,9 +33,11 @@
             return gapi.client.webfonts.webfonts.list({}).then(
                 function (response) {
                     const fontList = ["Engagement", "Handlee", "Niconne", "Vibur", "Homemade Apple"];
-                    const sentenceList = ["Happiness is found in that moment you stop trying to be like everyone else, and simply be yourself",
-                                        "Don't limit your challenges, challenge your limits",
-                                        "If you stumble, make it part of the dance"]
+                    const sentenceList = [
+                        "Happiness is found in that moment you stop trying to be like everyone else, and simply be yourself",
+                        "Don't limit your challenges, challenge your limits",
+                        "If you stumble, make it part of the dance"
+                    ]
                     const rand = Math.floor(Math.random() * fontList.length);
                     const randSentence = Math.floor(Math.random() * sentenceList.length);
 
@@ -44,11 +46,11 @@
                             families: [fontList[rand]],
                         },
                     });
-    
+
                     $("#setwords").css("font-family", fontList[rand]);
                     $("#setwords").html(sentenceList[randSentence]);
                     $("#fontname").html("Font Name:" + " " + fontList[rand]);
-    
+
                     console.log("Font name:", fontList[rand]);
                 },
                 function (err) {
@@ -100,8 +102,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="account" href="../../HTML/index.html"><span
-                            class="material-icons-two-tone">account_circle</span> View
-                        Account
+                            class="material-icons-two-tone">account_circle</span> <span id="current-username">View
+                            Account</span>
                     </a>
                 </li>
             </ul>
@@ -111,7 +113,8 @@
         <h2 class="typing"><u><span class="auto-input"></span></u></h2>
     </div>
     <div class="container column-container">
-        <h4 id="setwords">Happiness is found in that moment you stop trying to be like everyone else, and simply be yourself</h4>
+        <h4 id="setwords">Happiness is found in that moment you stop trying to be like everyone else, and simply be
+            yourself</h4>
         <p id="fontname"></p>
         <button onclick="loadClient()" id="loadfont" class="btn btn-default">Load</button>
         <button onclick="execute()" id="executefont" class="btn btn-default">Randomize me!</button>
@@ -120,21 +123,28 @@
         <p>try loading and randomizing!</p>
     </div>
     <p class="text-center text-wrap center-space">What exactly are Script fonts?</p>
-    <p class="text-center text-wrap center-space">Script fonts, otherwise known as Handwriting fonts, are fonts that look like peoples
-        handwriting or in some cases like fonts that are hand-written in those fancy scripts. (I'm sure you could have guessed that by the name 😉).
+    <p class="text-center text-wrap center-space">Script fonts, otherwise known as Handwriting fonts, are fonts that
+        look like peoples
+        handwriting or in some cases like fonts that are hand-written in those fancy scripts. (I'm sure you could have
+        guessed that by the name 😉).
     </p>
-    <p class="text-center text-wrap center-space"> Similar to Monospace fonts, Script fonts shouldn't be overused as it may make your
+    <p class="text-center text-wrap center-space"> Similar to Monospace fonts, Script fonts shouldn't be overused as it
+        may make your
         page look very messy or "amateur-like".
     </p>
     <img class="container" src="../../Media/scriptfont.jpeg" alt="website using script font" width="75%" height="75%">
-    <p class="text-center text-wrap center-space">The way that the above example uses Script font is well done. The design of the website
+    <p class="text-center text-wrap center-space">The way that the above example uses Script font is well done. The
+        design of the website
         looks as though it's been drawn. To have a Script font compliment the design is perfect.
     </p>
-    <p class="text-center text-wrap center-space">Generally, as a rule of thumb, you should stick to Serif and Sans-Serif fonts when creating
-        websites. I'm not here to boss you around but make sure you think the website looks good when you use that script font!
+    <p class="text-center text-wrap center-space">Generally, as a rule of thumb, you should stick to Serif and
+        Sans-Serif fonts when creating
+        websites. I'm not here to boss you around but make sure you think the website looks good when you use that
+        script font!
     </p>
     <div class="column-container">
-        <a href="../../HTML/testyourknowledge-home.html"><button class="btn btn-default">Take the test on Fonts!</button></a>
+        <a href="../../HTML/testyourknowledge-home.html"><button class="btn btn-default">Take the test on
+                Fonts!</button></a>
     </div>
     <div class="margin"></div>
 </body>
@@ -152,19 +162,31 @@
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script>
     var typed = new Typed(".auto-input", {
-    strings: [
-    "Script",
-    "or Handwriting",
-    "Truly Caligraphic"
-    ],
-    typeSpeed: 150,
-    backSpeed: 50,
-    loop: true,
+        strings: [
+            "Script",
+            "or Handwriting",
+            "Truly Caligraphic"
+        ],
+        typeSpeed: 150,
+        backSpeed: 50,
+        loop: true,
     });
-    $("#loadfont").on("click", function(){
+    $("#loadfont").on("click", function () {
         $(this).hide();
         $("#executefont").show();
     });
-    </script>
+
+    (() => {
+        const username = sessionStorage.getItem('username')
+        const hasUsername = !(username === '' | username === null | username === undefined)
+
+        if (hasUsername) {
+            $("#current-username")[0].innerText = `Hello ${username}!`;
+            console.log(username)
+        }
+
+
+    })();
+</script>
 
 </html>

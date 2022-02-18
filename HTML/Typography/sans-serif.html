@@ -34,7 +34,9 @@
       return gapi.client.webfonts.webfonts.list({}).then(
         function (response) {
           const fontList = ["Fjalla One", "Arsenal", "Saira Condensed", "Manrope", "Raleway"];
-          const sentenceList = ["The quick brown fox jumps over the lazy dog.", "The five boxing wizards jump quickly.", "Pack my box with five dozen liquor jugs."]
+          const sentenceList = ["The quick brown fox jumps over the lazy dog.",
+            "The five boxing wizards jump quickly.", "Pack my box with five dozen liquor jugs."
+          ]
           const rand = Math.floor(Math.random() * fontList.length);
           const randSentence = Math.floor(Math.random() * sentenceList.length);
 
@@ -59,12 +61,12 @@
 </head>
 
 <body class="sans-serif">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../../HTML/index.html">Fontrivia</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="../../HTML/index.html">Fontrivia</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -96,9 +98,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="account" href="../../HTML/index.html"><span
-              class="material-icons-two-tone">account_circle</span> View
-            Account
+          <a class="nav-link" id="account" href="../../HTML/index.html">
+            <span class="material-icons-two-tone">account_circle</span>
+            <span id="current-username">View Account</span>
           </a>
         </li>
       </ul>
@@ -167,6 +169,18 @@
     $(this).hide();
     $("#executefont").show();
   });
+
+  (() => {
+    const username = sessionStorage.getItem('username')
+    const hasUsername = !(username === '' | username === null | username === undefined)
+
+    if (hasUsername) {
+      $("#current-username")[0].innerText = `Hello ${username}!`;
+      console.log(username)
+    }
+
+
+  })();
 </script>
 
 
