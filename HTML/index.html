@@ -148,6 +148,19 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
   </script>
   <script src="../JS/currentusername.js"></script>
+  <script>
+    (() => {
+      const username = sessionStorage.getItem('username')
+      const hasUsername = !(username === '' | username === null | username === undefined)
+
+      if (hasUsername) {
+        $("#current-username")[0].innerText = `Hello ${username}!`;
+        console.log(username)
+      }
+
+
+    })();
+  </script>
 </body>
 
 </html>

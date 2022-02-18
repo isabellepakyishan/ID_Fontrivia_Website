@@ -56,8 +56,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="account" href="../../HTML/index.html"><span
-                            class="material-icons-two-tone">account_circle</span> View
-                        Account
+                            class="material-icons-two-tone">account_circle</span> <span id="current-username">View
+                            Account</span>
                     </a>
                 </li>
             </ul>
@@ -90,5 +90,18 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
 </script>
 <script src="../JS/test-your-knowledge.js"></script>
+<script>
+    (() => {
+        const username = sessionStorage.getItem('username')
+        const hasUsername = !(username === '' | username === null | username === undefined)
+
+        if (hasUsername) {
+            $("#current-username")[0].innerText = `Hello ${username}!`;
+            console.log(username)
+        }
+
+
+    })();
+</script>
 
 </html>
