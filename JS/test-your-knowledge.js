@@ -1,8 +1,3 @@
-var ranFontIndex;
-var fontName;
-var fontCategory;
-var correctCounter;
-
 function loadClient() {
     gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
     return gapi.client
@@ -20,12 +15,12 @@ function loadClient() {
 function execute() {
     return gapi.client.webfonts.webfonts.list({}).then(
         function (response) {
-            ranFontIndex = Math.floor(
+            const ranFontIndex = Math.floor(
                 Math.random() * response.result.items.length
             );
             console.log(ranFontIndex);
             console.log("Response", response.result.items[ranFontIndex]);
-            fontName = response.result.items[ranFontIndex].family;
+            const fontName = response.result.items[ranFontIndex].family;
 
             WebFont.load({
                 google: {
@@ -36,34 +31,44 @@ function execute() {
             $("#setwords").css("font-family", fontName);
 
             console.log("Font name:", fontName);
-            fontCategory = response.result.items[ranFontIndex].category;
+            const fontCategory = response.result.items[ranFontIndex].category;
             console.log("Font Category:", fontCategory);
 
-            $("#sans-serif-option").on("click", function () {
-                if (fontCategory == "sans-serif") {
-                    alert("Correct");
+            const options = [
+                '#sans-serif-option',
+                '#serif-option',
+                '#monospace-option',
+                '#display-option',
+                '#script-option'
+            ]
+
+            const categories = [
+                'sans-serif',
+                'serif',
+                'monospace',
+                'display',
+                'handwriting'
+            ]
+
+            const idxCat = categories.indexOf(fontCategory);
+
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
+
+                $(option).unbind('click');
+
+                if (i == idxCat) {
+                    $(option).on('click', function () {
+                        alert('correct')
+                        execute();
+                    })
+                } else {
+                    $(option).on('click', function () {
+                        alert('no correct')
+                    })
                 }
-            });
-            $("#serif-option").on("click", function () {
-                if (fontCategory == "serif") {
-                    alert("Correct");
-                }
-            });
-            $("#monospace-option").on("click", function () {
-                if (fontCategory == "monospace") {
-                    alert("Correct");
-                }
-            });
-            $("#display-option").on("click", function () {
-                if (fontCategory == "display") {
-                    alert("Correct");
-                }
-            });
-            $("#script-option").on("click", function () {
-                if (fontCategory == "handwriting") {
-                    alert("Correct");
-                }
-            })
+            }
+
         },
         function (err) {
             console.error("Execute error", err);
@@ -75,11 +80,3 @@ gapi.load("client");
 $("#firstLoad").on("click", function () {
     $(this).hide();
 });
-
-// $("#sans-serif-option").on("click", function () {
-//     if (fontCategory == "sans-serif") {
-//         alert("Correct");
-//     } else {
-//         alert("Wrong");
-//     }
-// })
