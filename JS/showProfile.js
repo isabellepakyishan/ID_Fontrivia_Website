@@ -10,6 +10,10 @@
                 console.log(username)
             }
 
+            if (streakScore == null || streakScore == undefined){
+                streakScore = 0;
+            }
+
             $("#user-username")[0].innerText = `${username}`;
             $("#user-email")[0].innerText = `${emailAddress}`;
             $("#user-streakScore")[0].innerText = `${streakScore}`;

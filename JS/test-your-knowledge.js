@@ -1,5 +1,9 @@
 let updatingStreakScore = sessionStorage.getItem('streak-score');
 
+if (isNaN(updatingStreakScore)) {
+    updatingStreakScore = 0;
+}
+
 function loadClient() {
     gapi.client.setApiKey("AIzaSyCYXVUXYdjLi5O-bJLmxgrpzQtiBv_T_ic");
     return gapi.client
