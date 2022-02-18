@@ -50,12 +50,12 @@
                         Test your Knowledge</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../HTML/login.html"><span class="material-icons-two-tone">logout</span>
+                    <a id="user-logout" class="nav-link"><span class="material-icons-two-tone">logout</span>
                         Logout
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="account" href="../../HTML/index.html"><span
+                    <a class="nav-link" id="account" href="../../HTML/user-profile.html"><span
                             class="material-icons-two-tone">account_circle</span> <span id="current-username">View
                             Account</span>
                     </a>
@@ -79,10 +79,9 @@
     <button class="quiz-next" onclick="execute()">Next Question</button>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"> -->
+<!-- </script> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
 </script>
@@ -103,5 +102,6 @@
 
     })();
 </script>
+<script defer src="../../js/logout.js"></script>
 
 </html>

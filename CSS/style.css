@@ -306,3 +306,12 @@ button.quiz-next {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+#profile-holder {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
