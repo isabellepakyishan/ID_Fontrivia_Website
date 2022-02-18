@@ -17,16 +17,31 @@ function loadClient() {
 function execute() {
     return gapi.client.webfonts.webfonts.list({}).then(
         function (response) {
-            const fontArray = [];
-            for (let i=0; i < response.result.items.length; i++){
-                fontArray.push(response.result.items[i].family)
-            }
-            const filteredFonts = fontArray.filter(font => !font.startsWith("Noto") && !font.startsWith("Siemreap"));
+            const fontArray = ["Alex Brush", "Fira Mono", "News Cycle", "Festive", "Erica One", "Bree Serif", "Cuprum", "Actor", "Dosis", "Faustina", "Trirong", 
+            "Just Me Again Down Here", "New Rocker", "Archivo", "Goblin One", "Galindo", "Reem Kufi", "Fanwood Text", "Kolker Brush", "Yantramanav", "IM Fell Double Pica",
+            "Cedarville Cursive", "Arbutus", "Junge", "Bitter", "Charm", "Cambo", "Merienda", "Boogaloo", "Euphoria Script", "Laila", "Chivo", "Linden Hill", "Kodchasan", 
+            "Londrina Shadow", "Skranji", "Arya", "Capriola", "Rokkitt", "Caladea", "Cabin Sketch", "Big Shoulders Inline Text", "Fontdiner Swanky", "Moon Dance", "Mulish", 
+            "Fleur De Leah", "Belgrano", "Mako", "Martel Sans", "Quattrocento Sans", "Adamina", "Karma", "Dawning of a New Day", "Diplomata SC", "Assistant", "Libre Baskerville", 
+            "Overpass", "Cherish", "Kaisei Tokumin", "Birthstone", "Share", "Cardo", "Modak", "Geostar", "Cousine", "Bungee Shade", "Michroma", "Glegoo", "Charmonman", "Inconsolata", 
+            "Source Code Pro", "Nanum Gothic Coding", "Fira Mono", "Cutive Mono", "Oxygen Mono", "Syne Mono", "Azeret Mono", "DM Mono", "JetBrains Mono", "Courier Prime", "IBM Plex Mono", 
+            "Ubuntu Mono"]
+
+            const fontCategoryArray = ["handwriting", "monospace", "sans-serif", "handwriting", "display", "serif", "sans-serif", "sans-serif", "sans-serif", "serif", "serif",
+            "handwriting", "display", "sans-serif", "display", "display", "sans-serif", "serif", "handwriting", "sans-serif", "serif",
+            "handwriting", "display", "serif", "serif", "handwriting", "serif", "handwriting", "display", "handwriting", "sans-serif", "sans-serif", "serif", "sans-serif",
+            "display", "display", "sans-serif", "sans-serif", "serif", "serif", "display", "display", "display", "handwriting", "sans-serif",
+            "handwriting", "serif", "sans-serif", "sans-serif", "sans-serif", "serif", "serif", "handwriting", "display", "sans-serif", "serif",
+            "sans-serif", "handwriting", "serif", "handwriting", "display", "serif", "display", "display", "monospace", "display", "sans-serif", "serif", "handwriting", "monospace",
+            "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace", "monospace"];
+
+            console.log (fontArray.length)
+            console.log (fontCategoryArray.length)
+
             const ranFontIndex = Math.floor(
-                Math.random() * filteredFonts.length
+                Math.random() * fontArray.length
             );
-            console.log("Response", filteredFonts[ranFontIndex]);
-            const fontName = filteredFonts[ranFontIndex];
+            const fontName = fontArray[ranFontIndex];
+            const fontCategory = fontCategoryArray[ranFontIndex];
 
             WebFont.load({
                 google: {
@@ -37,7 +52,6 @@ function execute() {
             $("#setwords").css("font-family", fontName);
 
             console.log("Font name:", fontName);
-            const fontCategory = response.result.items[ranFontIndex].category;
             console.log("Font Category:", fontCategory);
 
             const options = [
@@ -68,7 +82,7 @@ function execute() {
                         updatingStreakScore++
                         sessionStorage.setItem('streak-score', updatingStreakScore)
 
-                        alert('Your answer is correct!')
+                        alert('Your answer is correct! Streak: ' + updatingStreakScore)
                         execute();
                     })
                 } else {
@@ -76,7 +90,7 @@ function execute() {
                         updatingStreakScore = 0
                         sessionStorage.setItem('streak-score', updatingStreakScore)
 
-                        alert('Your answer is incorrect. Your streak score has been reset to 0 :((')
+                        alert('Your answer is incorrect. Your streak score has been reset to 0 :(')
                     })
                 }
             }
