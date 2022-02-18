@@ -17,12 +17,16 @@ function loadClient() {
 function execute() {
     return gapi.client.webfonts.webfonts.list({}).then(
         function (response) {
+            const fontArray = [];
+            for (let i=0; i < response.result.items.length; i++){
+                fontArray.push(response.result.items[i].family)
+            }
+            const filteredFonts = fontArray.filter(font => !font.startsWith("Noto") && !font.startsWith("Siemreap"));
             const ranFontIndex = Math.floor(
-                Math.random() * response.result.items.length
+                Math.random() * filteredFonts.length
             );
-            console.log(ranFontIndex);
-            console.log("Response", response.result.items[ranFontIndex]);
-            const fontName = response.result.items[ranFontIndex].family;
+            console.log("Response", filteredFonts[ranFontIndex]);
+            const fontName = filteredFonts[ranFontIndex];
 
             WebFont.load({
                 google: {
