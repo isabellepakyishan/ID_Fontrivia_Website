@@ -26,7 +26,7 @@ function checkCurrentPage() {
     loadUselessFacts();
 
     function loadLoginPage() {
-      window.location.href = "../HTML/login.html";
+      window.location.href = "./login.html";
     }
   }
 
@@ -66,7 +66,7 @@ function checkCurrentPage() {
       $.ajax(settings).done(function (response) {
         console.log(`Data for ${userName} has been added.`)
         alert("Registration successful. Click [OK] to login.");
-        window.location.href = "../HTML/login.html";
+        window.location.href = "./login.html";
       });
     });
   }
@@ -104,7 +104,7 @@ function checkCurrentPage() {
             setTimeout(loadMainPage, 1000);
 
             function loadMainPage() {
-              window.location.href = `../HTML/index.html?username=${tempUsername}`;
+              window.location.href = `./index.html?username=${tempUsername}`;
             }
           }
         }

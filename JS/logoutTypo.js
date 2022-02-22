@@ -27,6 +27,6 @@ $("#user-logout").on("click", function () {
 
     $.ajax(settings).done(function (response) {
         console.log(response);
-        window.location.href = '../login.html';
+        window.location.href = './login.html';
     });
 })

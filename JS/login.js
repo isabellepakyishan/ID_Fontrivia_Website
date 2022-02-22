@@ -34,7 +34,7 @@ $("#login").on("click", function () {
                 setTimeout(loadMainPage, 1000);
 
                 function loadMainPage() {
-                    window.location.href = `../HTML/index.html?username=${tempUsername}`;
+                    window.location.href = `./index.html?username=${tempUsername}`;
 
                     sessionStorage.setItem('api-id', tempApiId);
                     sessionStorage.setItem('username', tempUsername);

@@ -101,11 +101,7 @@ With the help of Bootstrap and some CSS tools, we have made the website responsi
 
 ### Bugs and known issues
 
-One issue when play testing the game was that there could be fonts that dont consist of any english alphabets. This would set the font to Times New Roman by default but not change the answer it is supposed to be.
-One example of which is the Siemreap font (A Script/Handwriting font) which doesn't have any english alphabets in it. Hence, the font in the game changes to Times New Roman which is a Serif font. So when the user clicks
-the Serif option, the answer would be wrong even though technically they are correct.
-
-As of now, all known fonts without english alphabets have been filtered out of the list. If there are more fonts without any english alphabets, we will filter them out ASAP.
+Recently, there has been some pathing issues, please let us know so we can fix it. Thanks!
 
 ## Credits
 

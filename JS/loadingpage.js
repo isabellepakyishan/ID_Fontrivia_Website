@@ -17,5 +17,5 @@ setTimeout(loadLoginPage, 5000);
 loadUselessFacts();
 
 function loadLoginPage() {
-    window.location.href = "../HTML/login.html";
+    window.location.href = "./login.html";
 }

@@ -35,6 +35,6 @@ $("#register").on("click", function () {
     $.ajax(settings).done(function (response) {
         console.log(`Data for ${userName} has been added.`)
         alert("Registration successful. Click [OK] to login.");
-        window.location.href = "../HTML/login.html";
+        window.location.href = "./login.html";
     });
 });
